@@ -14,17 +14,13 @@ export class AppComponent {
 
 
   getPrice(e: string){
-    console.log(e);
     this.priceService.getPrice(e).subscribe((response) => {
-      console.log(response);
       this.priceData = response;
     });
   }
 
   currentIndex(e: object){
-    console.log(e);
     this.selectedIndex = e;
-
   }
 
 

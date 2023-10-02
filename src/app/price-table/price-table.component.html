@@ -1,5 +1,5 @@
 <div>
-  <h2>Price Table</h2>
+  <p>Price Table</p>
   <table>
     <thead>
       <tr >
@@ -19,7 +19,7 @@
     <tbody>
       <tr *ngFor="let row of priceData; index as i">
         <ng-container *ngIf="isShowMore? true : i <5">
-          <td>{{i}}</td>
+          <td class="bold">{{i}}</td>
           <td class="price" [ngClass]="{'active': i === selectedIndex?.currentRow && j === selectedIndex?.currentCol}" *ngFor="let col of priceData[i]; index as j" (click)="selectPrice(i, j)">
             {{ col.business_day }}, {{ col.price }}, {{ col.quantity }}
           </td>
@@ -27,5 +27,6 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="showMore()">See More</button>
+  <a *ngIf="!isShowMore" (click)="showMore()">See More</a>
+  <a *ngIf="isShowMore" (click)="showMore()">See Less</a>
 </div>

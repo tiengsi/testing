@@ -5,9 +5,10 @@
 </div>
 
 <div class="order-price" *ngIf="selectedIndex">
-  Order Price: ${{ priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.business_day }}
+  Order Price: $
+  ( {{ priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.business_day }}
    x {{priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.price}}
-   x {{priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.quantity }}
+   x {{priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.quantity }} )
   <button class="btn-cart" (click)="addToCart()">Cart</button>
 </div>
 
