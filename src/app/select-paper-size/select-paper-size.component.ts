@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { PriceTableService } from '../app.service';
 
 @Component({
   selector: 'app-select-paper-size',
   templateUrl: './select-paper-size.component.html',
   styleUrls: ['./select-paper-size.component.scss']
 })
-export class SelectPaperSizeComponent {
+export class SelectPaperSizeComponent implements OnInit {
   selectedPaperSize: string = 'A4'; // Initialize with a default value
   paperSizes: string[] = ['A4', 'A5', 'B4', 'B5']; // Define your paper sizes here
+  priceData: any;
+  @Output() selectValue = new EventEmitter<string>();
 
-  applySelection() {
-    // You can perform actions when the user clicks "Apply"
-    console.log(`Selected Paper Size: ${this.selectedPaperSize}`);
-    // You can also trigger actions like fetching price data based on the selected paper size.
-    console.log(this.formatNumber(1000000));
 
+  constructor(private priceService: PriceTableService) {}
+
+  ngOnInit(){
+    this.selectValue.emit(this.selectedPaperSize);
+  }
+
+  applySelection(price: string) {
+    this.selectValue.emit(price);
   }
 
   formatNumber(number: any) {

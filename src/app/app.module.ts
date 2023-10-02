@@ -6,20 +6,24 @@ import { AppComponent } from './app.component';
 import { SelectPaperSizeComponent } from './select-paper-size/select-paper-size.component';
 import { PriceTableComponent } from './price-table/price-table.component';
 import { OrderPriceComponent } from './order-price/order-price.component';
+import { PriceTableService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectPaperSizeComponent,
     PriceTableComponent,
-    OrderPriceComponent
+    OrderPriceComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PriceTableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

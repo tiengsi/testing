@@ -2,19 +2,28 @@
   <h2>Price Table</h2>
   <table>
     <thead>
-      <tr>
-        <th>Delivery (Business Days)</th>
-        <th>Quantity</th>
-        <th>Price</th>
+      <tr >
+        <!-- <ng-container *ngFor="let row of priceData; index as i">
+          <td *ngFor="let col of priceData[i]; index as j">
+            {{j}}
+          </td>
+        </ng-container> -->
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of priceData">
-        <td>{{ row.business_day }}</td>
-        <td>{{ row.quantity }}</td>
-        <td>
-          <button (click)="selectPrice(row)">{{ row.price | number }}</button>
-        </td>
+      <tr *ngFor="let row of priceData; index as i">
+        <ng-container *ngIf="isShowMore? true : i <5">
+          <td>{{i}}</td>
+          <td class="price" [ngClass]="{'active': i === selectedIndex?.currentRow && j === selectedIndex?.currentCol}" *ngFor="let col of priceData[i]; index as j" (click)="selectPrice(i, j)">
+            {{ col.business_day }}, {{ col.price }}, {{ col.quantity }}
+          </td>
+        </ng-container>
       </tr>
     </tbody>
   </table>

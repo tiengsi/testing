@@ -1,6 +1,13 @@
-<div>
-  <h2>Order Price</h2>
-  <p>Selected Price: {{ selectedPrice?.price | number }}</p>
-  <button (click)="addToCart()">Cart</button>
+
+<div class="order-price" *ngIf="!selectedIndex">
+  Order Price: $
+  <button class="btn-cart">Cart</button>
+</div>
+
+<div class="order-price" *ngIf="selectedIndex">
+  Order Price: ${{ priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.business_day }}
+   x {{priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.price}}
+   x {{priceData?.[selectedIndex.currentRow][selectedIndex.currentCol]?.quantity }}
+  <button class="btn-cart" (click)="addToCart()">Cart</button>
 </div>
 

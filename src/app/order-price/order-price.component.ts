@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-order-price',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class OrderPriceComponent {
   selectedPrice: any;
+  @Input() selectedIndex: any;
+  @Input() priceData: any;
+
+  constructor(){
+
+  }
 
   addToCart() {
     // Handle adding the selected price to the cart or perform other actions.

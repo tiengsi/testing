@@ -1,7 +1,11 @@
-<div>
-  <h2>Select Paper Size</h2>
-  <select [(ngModel)]="selectedPaperSize">
-    <option *ngFor="let size of paperSizes" [value]="size">{{ size }}</option>
-  </select>
-  <button (click)="applySelection()">Apply</button>
+<div class="select-paper-size">
+  <div>
+    <h2>Select Paper Size</h2>
+    <select [(ngModel)]="selectedPaperSize">
+      <option *ngFor="let size of paperSizes" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+  <div class="button">
+    <button (click)="applySelection(selectedPaperSize)">Apply</button>
+  </div>
 </div>
