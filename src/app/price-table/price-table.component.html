@@ -1,0 +1,22 @@
+<div>
+  <h2>Price Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Delivery (Business Days)</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of priceData">
+        <td>{{ row.business_day }}</td>
+        <td>{{ row.quantity }}</td>
+        <td>
+          <button (click)="selectPrice(row)">{{ row.price | number }}</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="showMore()">See More</button>
+</div>
